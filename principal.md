@@ -83,9 +83,11 @@ Khi truy cập đến endpoint /dashboard (điều hướng 1 hồi thì ra endp
 ![](Attachments/Pasted%20image%2020260418180506.png)
 
 Mã hoá JWT: không có thuật toán
+
 ![](Attachments/Pasted%20image%2020260418180035.png)
 
 Mã hoá JWE:
+
 ![](Attachments/Pasted%20image%2020260418180536.png)
 Test Token:
 ![](Attachments/Pasted%20image%2020260418182720.png)
