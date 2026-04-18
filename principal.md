@@ -87,7 +87,10 @@ Mã hoá JWT: không có thuật toán
 
 Mã hoá JWE:
 ![](Attachments/Pasted%20image%2020260418180536.png)
+Test Token:
+![](Attachments/Pasted%20image%2020260418182720.png)
 
+Trả về 404 -> token đúng, sai thì nó trả 401
 Cầm JWE này gửi đi các endpind để xác thực, dùng Kiterunner
 https://infosecwriteups.com/api-endpoints-discovery-using-kiterunner-ded82e092543
 Kiterunner is a tool designed for brute-forcing API endpoints using wordlists generated from OpenAPI specifications. Unlike traditional fuzzers that rely on wordlists meant for web paths, Kiterunner focuses on structured API routes, making it a powerful tool for API recon.
@@ -98,7 +101,7 @@ Why Use Kiterunner?
 Wordlists:
 ![](Attachments/Pasted%20image%2020260418181025.png)
 
-`kr scan -A apiroutes-260227 http://10.129.20.208:8080`
+
 
 
 
