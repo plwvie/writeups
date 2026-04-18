@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6bbffa49318863b7",
+            "id": "29d9c40df10d7af1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "principal.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "principal"
+              "title": "Untitled"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "principal.md",
+                "file": "Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for principal"
+              "title": "Backlinks for Untitled"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "principal.md",
+                "file": "Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from principal"
+              "title": "Outgoing links from Untitled"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "principal.md",
+                "file": "Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of principal"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -194,8 +194,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6bbffa49318863b7",
+  "active": "29d9c40df10d7af1",
   "lastOpenFiles": [
+    "principal.md",
+    "Untitled.md",
     "Attachments/Pasted image 20260418185303.png",
     "Attachments/Pasted image 20260418185154.png",
     "Attachments/Pasted image 20260418184904.png",
@@ -206,8 +208,6 @@
     "Attachments/Pasted image 20260418183719.png",
     "Attachments/Pasted image 20260418183632.png",
     "Attachments/Pasted image 20260418183553.png",
-    "Attachments/Pasted image 20260418183510.png",
-    "principal.md",
     "Attachments"
   ]
 }
