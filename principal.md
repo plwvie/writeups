@@ -101,7 +101,18 @@ Why Use Kiterunner?
 Wordlists:
 ![](Attachments/Pasted%20image%2020260418181025.png)
 
+`kr scan -A apiroutes-260227 http://10.129.20.208:8080 -H "Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.QZtgy6jtaQFSkfuSeVZGj7YnQkGNHG5vGPTPhpsfJwTPVsMrByJlT2GC63C6SI1SuqBFvOBJSmc-Q2sGrSn8kuiaxwA-rLcJhnAttiiOS9u2YbbYvKTs8BWMLd2r60lW0nS0tqcwqcg2ihW0ndI9Pmo2llt2wkCa4d0eT_pg3nFg7SGrohszIiPA-djNSloguEPo0ncj_eJ0ajGOTQL4qyfPtY9WMQjHjH-OhYH-Y5fu6sap-0bZ4X_tvUPOf63H5H0p32NauC-PGs15X2i4eETf66yvgyFp23kigPazCAphAbevCcjZQ_-_ULwwTxIXogzq4FFqZnzA3Oh7rGPLoA.JN25cbGP0ntRNIQp.GArSF_PWa_Vn_9uijTgKWmfVtrkSh4G3zQNTep0k57u-D2_u6fHg2Ye_DEGHu-gG7JO9jMGihu0ViJNy1Xay8bpBGIfIoi5CvTb053t7wDj5OSo-.JLKcDevEzQ2LlpAbjVjmog"`
 
+![](Attachments/Pasted%20image%2020260418183042.png)
+
+endpoint /api/users:
+![](Attachments/Pasted%20image%2020260418183129.png)
+
+endpoint /api/settings:
+![](Attachments/Pasted%20image%2020260418183204.png)
+
+dành được quyền truy cập ssh: 
+svc-deploy:D3pl0y_$$H_Now42!
 
 
 
