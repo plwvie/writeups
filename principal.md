@@ -44,6 +44,7 @@ JWS kết hợp JWE:
 - Dùng Private Key của server để Giải mã (Decrypt) vỏ JWE. Kết quả thu được (phần Ciphertext được giải mã) là một chuỗi JWS.
 - Dùng Public Key của người gửi để Xác minh chữ ký (Verify) của chuỗi JWS này.
 - Nếu chữ ký đúng, trích xuất Payload gốc từ JWS để xử lý.
+
 ![](Attachments/Pasted%20image%2020260418172356.png)
 
 Phân tích CVE-2026-29000:
