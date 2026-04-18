@@ -112,10 +112,16 @@ endpoint /api/settings:
 ![](Attachments/Pasted%20image%2020260418183204.png)
 
 dành được quyền truy cập ssh: 
-svc-deploy:D3pl0y_$$H_Now42!
+svc-deploy/D3pl0y_$\$H_Now42!
+![](Attachments/Pasted%20image%2020260418183816.png)
+
+### Leo thang:
+![](Attachments/Pasted%20image%2020260418183857.png)
+
+Vấn đề: Server chấp nhận ssh theo key được ký bởi CA, mà ta lại có được private key của CA -> tự tạo key và ký
+![](Attachments/Pasted%20image%2020260418184302.png)
+
+![](Attachments/Pasted%20image%2020260418184904.png)
 
 
-
-
-![](Attachments/Pasted%20image%2020260418183553.png)
 
