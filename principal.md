@@ -25,6 +25,7 @@ JWS kết hợp JWE:
 - Dùng Private Key của người gửi để Ký (Sign) dữ liệu này, tạo thành một chuỗi JWS hoàn chỉnh (`Header.Payload.Signature`). (-> Lỗ hổng)
 - Lấy _toàn bộ chuỗi JWS_ đó coi như là một Payload mới.
 - Dùng Public Key của người nhận để Mã hóa (Encrypt) Payload mới này, tạo ra chuỗi JWE (`Header.EncKey.IV.Ciphertext.Tag`). Chuỗi `Ciphertext` lúc này chính là JWS đã bị mã hóa.
+![](Attachments/Pasted%20image%2020260418174541.png)
 ##### Quy trình Mở (Phía Server/Receiver):
 - Nhận được chuỗi JWE 5 phần.
 - Dùng Private Key của server để Giải mã (Decrypt) vỏ JWE. Kết quả thu được (phần Ciphertext được giải mã) là một chuỗi JWS.
@@ -57,3 +58,14 @@ createJwtProfile(ctx, credentials, jwt);
 ```
 Khai thác:
 Lấy RSA Public Key của Server
+Tạo JWT với claims tuỳ ý:
+```json
+{
+  "sub": "admin",
+  "role": "ADMIN"
+}
+```
+
+Mã hoá JWT với khoá RSA public key của Server
+Gửi token tới các endpoint của ứng dụng web
+Ứng dụng web giải mã JWE, thấy không có chữ ký để xác nhận, bỏ qua và chấp thuận JWT
