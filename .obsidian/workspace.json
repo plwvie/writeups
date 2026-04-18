@@ -11,15 +11,14 @@
             "id": "6bbffa49318863b7",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "principal.md",
-                "bFile": "principal.md",
-                "aRef": "HEAD",
-                "bRef": ""
+                "file": "principal.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: principal  (Index)"
+              "icon": "lucide-file",
+              "title": "principal"
             }
           }
         ]
@@ -79,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "1296e5ec9d5d4f53",
@@ -95,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "principal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for principal"
             }
           },
           {
@@ -113,11 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "principal.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from principal"
             }
           },
           {
@@ -155,12 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "principal.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of principal"
             }
           },
           {
@@ -178,7 +181,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,6 +197,11 @@
   },
   "active": "6bbffa49318863b7",
   "lastOpenFiles": [
+    "Attachments/Pasted image 20260418172356.png",
+    "Attachments/Pasted image 20260418172333.png",
+    "Attachments/Pasted image 20260418172309.png",
+    "Attachments/Pasted image 20260418172247.png",
+    "Attachments/Pasted image 20260418171349.png",
     "principal.md",
     "Attachments/Pasted image 20260418170845.png",
     "Attachments/Pasted image 20260418170807.png",
@@ -201,7 +209,6 @@
     "Attachments/Pasted image 20260418170234.png",
     "Attachments/Pasted image 20260418170032.png",
     "Attachments/Pasted image 20260418165419.png",
-    "Attachments/Pasted image 20260418165151.png",
     "Attachments"
   ]
 }
