@@ -32,4 +32,28 @@ JWS kết hợp JWE:
 - Nếu chữ ký đúng, trích xuất Payload gốc từ JWS để xử lý.
 ![](Attachments/Pasted%20image%2020260418172356.png)
 Phân tích CVE-2026-29000:
+Khi JwtAuthenticator của pac4j nhận được một JWT (JWE) đã mã hóa, nó sẽ thực hiện quy trình sau:
+- Giải mã lớp vỏ JWE bên ngoài
+- Phân tích nội dung bên trong
+- Xác minh chữ ký trên token bên trong
+Lỗ hổng nằm ở bước 3. Sau khi giải mã JWE, thư viện gọi hàm toSignedJWT() của com.nimbusds:nimbus-jose-jwt trên nội dung bên trong để trích xuất token đã ký để xác minh. Nếu token bên trong là PlainJWT (một JWT với alg: none, nghĩa là không có chữ ký nào cả), phương thức này sẽ trả về null.
+```java
+// (after JWE decryption succeeds above)
+SignedJWT signedJWT = encryptedJWT.getPayload().toSignedJWT();
 
+// If inner token is PlainJWT, signedJWT is null
+if (signedJWT != null) {
+    jwt = signedJWT;
+}
+
+// Signature verification only runs if signedJWT is not null
+if (signedJWT != null && !signatureConfigurations.isEmpty()) {
+    // Verify signature... but this block is NEVER entered
+    // for a PlainJWT wrapped in JWE
+}
+
+// Claims are extracted regardless — attacker is now "authenticated"
+createJwtProfile(ctx, credentials, jwt);
+```
+Khai thác:
+Lấy RSA Public Key của Server
