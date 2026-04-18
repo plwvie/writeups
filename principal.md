@@ -14,9 +14,11 @@ Gửi thử yêu cầu đăng nhập:
 ![697](Attachments/Pasted%20image%2020260418170845.png)
 
 pac4j-jwt/6.0.3 -> CVE-2026-29000: https://snyk.io/articles/public-key-breaks-authentication-pac4j-jwt/
+
 JWT-JWS-JWE:
-JWT: https://viblo.asia/p/tim-hieu-ve-json-web-token-jwt-7rVRqp73v4bP
-JWE: https://medium.com/@idenisko/understanding-the-jwe-token-a-practical-guide-942224f6a9b6#2eea
+
+- JWT: https://viblo.asia/p/tim-hieu-ve-json-web-token-jwt-7rVRqp73v4bP
+- JWE: https://medium.com/@idenisko/understanding-the-jwe-token-a-practical-guide-942224f6a9b6#2eea
 
 ![](Attachments/Pasted%20image%2020260418171349.png)
 
