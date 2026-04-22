@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Logging.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Logging"
             }
           }
         ]
@@ -196,7 +196,9 @@
   },
   "active": "29d9c40df10d7af1",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Attachments/Pasted image 20260423060335.png",
+    "README.md",
+    "Logging.md",
     "principal.md",
     "Attachments/Pasted image 20260418185303.png",
     "Attachments/Pasted image 20260418185154.png",
