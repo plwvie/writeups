@@ -107,4 +107,10 @@
 	`Log(path, "Update check completed.");`
 `}`
 
+![](Attachments/Pasted%20image%2020260423161139.png)
+
+![](Attachments/Pasted%20image%2020260423161207.png)
+
+![](Attachments/Pasted%20image%2020260423161227.png)
+
 
