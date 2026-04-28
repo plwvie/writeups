@@ -28,11 +28,16 @@
 
 ![](Attachments/Pasted%20image%2020260423105125.png)
 
+`$TaskName = "UpdateChecker Agent"`
+    `$service = New-Object -ComObject "Schedule.Service"`
+    `$service.Connect()`
+    `$task = $service.GetFolder("\").GetTask($TaskName)`
+    `Write-Host $task.Xml`
+    
+
 ![](Attachments/Pasted%20image%2020260423132234.png)
 
 ![](Attachments/Pasted%20image%2020260423132506.png)
-
-
 
 `// UpdateMonitor.Program`
 `using System;`
@@ -113,5 +118,3 @@
 
 ![](Attachments/Pasted%20image%2020260423161227.png)
 
-
-t
