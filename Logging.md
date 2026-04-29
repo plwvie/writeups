@@ -44,7 +44,8 @@ Thu được NTLM hash của MSA_HEALTH$ ($ chỉ tài khoản máy, khó có th
 
 ### User Flag
 
-Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin của task, sửa lại một chút để
+Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin của task, sửa lại một chút để có thông tin đầy đủ của task:
+
 `$TaskName = "UpdateChecker Agent"`
     `$service = New-Object -ComObject "Schedule.Service"`
     `$service.Connect()`
@@ -54,7 +55,12 @@ Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin củ
 
 ![](Attachments/Pasted%20image%2020260423132234.png)
 
+PT3M: cứ 3 phút task lại chạy
+Đường dẫn: "C:\Program Files\UpdateMonitor\UpdateMonitor.exe"
+
 ![](Attachments/Pasted%20image%2020260423132506.png)
+
+Dịch ngược thu được mã nguồn C#:
 
 `// UpdateMonitor.Program`
 `using System;`
@@ -129,27 +135,48 @@ Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin củ
 	`Log(path, "Update check completed.");`
 `}`
 
+-> Ta cần tạo một dll độc hại, nén nó vào 1 file zip, sau đó cop file zip vào thư mục Update, chờ task gọi đến
+
 ![](Attachments/Pasted%20image%2020260423161139.png)
 
 ![](Attachments/Pasted%20image%2020260423161207.png)
 
 ![](Attachments/Pasted%20image%2020260423161227.png)
 
+Lấy được shell của jaylee.clifton:
+
 ![](Attachments/Pasted%20image%2020260428155731.png)
 
-![](Attachments/Pasted%20image%2020260428182310.png)
+### Root flag
+
+Dùng Certify.exe, ta thấy có 1 cert template mà nhóm IT có quyền xin, có flag ENROLLEE_SUPPLIES_SUBJECT, nhưng Extended Key Usage lại là Server Authen -> không phải ESC1
+Vấn đề là máy DC01 này được cấu hình để tự động cập nhật thông qua https://wsus.logging.htb:8051. Ta có thể dựng 1 server wsus giả mạo, và hướng DNS của domain đến server này.
+Có thể tham khảo ESC17 (?): https://mustafanafizdurukan.github.io/posts/esc17-wsus-dns-abuse/
+
+
+![](Attachments/Pasted%20image%2020260429142943.png)
+
+Dùng dnstool để tiêm bản ghi dns đến địa chỉ máy tấn công (kali):
 
 ![](Attachments/Pasted%20image%2020260428192539.png)
 
+Kiểm tra bản ghi DNS: dùng adidns
 ![](Attachments/Pasted%20image%2020260429000818.png)
 
-Certify.exe request /ca:"DC01.logging.htb\logging-DC01-CA" /template:"UpdateSrv" /subject:"CN=wsus.logging.htb" /dns:"wsus.logging.htb"
+Cả 2 công cụ trên đều trong gói krbxrelay.
+
+Xin cert cho server giả mạo:
+
+`Certify.exe request /ca:"DC01.logging.htb\logging-DC01-CA" /template:"UpdateSrv" /subject:"CN=wsus.logging.htb" /dns:"wsus.logging.htb"`
 
 ![](Attachments/Pasted%20image%2020260429000605.png)
 
+Dựng wsus server giả mạo với wsuks tool:
+
 ![](Attachments/Pasted%20image%2020260429000445.png)
 
-![](Attachments/Pasted%20image%2020260429000906.png)
+![](Attachments/Pasted%20image%2020260429143816.png)
+
 
 
 
