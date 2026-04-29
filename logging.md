@@ -27,7 +27,6 @@ https://infosecwriteups.com/how-hackers-achieve-invisible-persistence-in-active-
 
 ![](Attachments/Pasted%20image%2020260423065742.png)
 
-![](Attachments/Pasted%20image%2020260423065733.png)
 
 Nạp vé Kerberos của SVC_RECOVERY:
 
