@@ -6,37 +6,45 @@ Quét nâng cao:
 `nmap -Pn -p- --min-rate 2000 -T 4 <\IP>`
 -> quét nâng cao phát hiện cổng 8530 và 8531, là cổng để update windows nội bộ (?)
 
+### Lateral Movement
 Truy cập share SMB, nhận được nhiều file log, trong đó:
 ![](Attachments/Pasted%20image%2020260423064329.png)
 
 "LOGGING\svc_recovery", BindPass: "Em3rg3ncyPa\$\$2025"
 Thay 2025 bằng 2026 thì được mật khẩu đúng của SVC_RECOVERY
+SVC_RECOVERY nằm trong nhóm Protected Users -> không đăng nhập được bằng tk/mk thông thường hoặc hash, mọi thao tác đều phải thông qua Kerberos -> xin vé TGT. Ngoài ra còn phải đồng bộ về thời gian thông qua ntpupdate và faketime.
+
+![](Attachments/Pasted%20image%2020260429141035.png)
+
+![](Attachments/Pasted%20image%2020260429141049.png)
+
+![](Attachments/Pasted%20image%2020260429141101.png)
+
+SVC_RECOVERY có quyền GenericWrite tới MSA_HEALTH$ (là 1 thành viên của nhóm Remote). Ta có thể tấn công Shadow Credentials. 
+https://infosecwriteups.com/how-hackers-achieve-invisible-persistence-in-active-directory-shadow-credentials-6b53a6c85e74
+
 
 ![](Attachments/Pasted%20image%2020260423065742.png)
 
-SVC_RECOVERY nằm trong nhóm Protected Users -> không đăng nhập được bằng tk/mk thông thường hoặc hash, mọi thao tác đều phải thông qua Kerberos ->
-
-![](Attachments/Pasted%20image%2020260423065733.png)
 ![](Attachments/Pasted%20image%2020260423065733.png)
 
-![](Attachments/Pasted%20image%2020260423082227.png)
-
-
-![](Attachments/Pasted%20image%2020260423080643.png)
-
-![](Attachments/Pasted%20image%2020260423080719.png)
-
+Nạp vé Kerberos của SVC_RECOVERY:
 ![](Attachments/Pasted%20image%2020260423080830.png)
 
+Tấn công shadow credentials bằng công cụ certipy (linux), Certify.exe (windows):
 
 ![](Attachments/Pasted%20image%2020260423094710.png)
 
+Thu được NTLM hash của MSA_HEALTH$ ($ chỉ tài khoản máy, khó có thể crack dượdc)
 603fc24ee01a9409f83c9d1d701485c5
 
 ![](Attachments/Pasted%20image%2020260423105106.png)
 
 ![](Attachments/Pasted%20image%2020260423105125.png)
 
+### User Flag
+
+Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin của task, sửa lại một chút để
 `$TaskName = "UpdateChecker Agent"`
     `$service = New-Object -ComObject "Schedule.Service"`
     `$service.Connect()`
