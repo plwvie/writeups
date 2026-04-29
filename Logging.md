@@ -8,6 +8,7 @@ Quét nâng cao:
 
 ### Lateral Movement
 Truy cập share SMB, nhận được nhiều file log, trong đó:
+
 ![](Attachments/Pasted%20image%2020260423064329.png)
 
 "LOGGING\svc_recovery", BindPass: "Em3rg3ncyPa\$\$2025"
@@ -58,10 +59,9 @@ Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin củ
 PT3M: cứ 3 phút task lại chạy
 Đường dẫn: "C:\Program Files\UpdateMonitor\UpdateMonitor.exe"
 
-![](Attachments/Pasted%20image%2020260423132506.png)
-
 Dịch ngược thu được mã nguồn C#:
 
+``` 
 `// UpdateMonitor.Program`
 `using System;`
 `using System.IO;`
@@ -134,7 +134,7 @@ Dịch ngược thu được mã nguồn C#:
 	`}`
 	`Log(path, "Update check completed.");`
 `}`
-
+```
 -> Ta cần tạo một dll độc hại, nén nó vào 1 file zip, sau đó cop file zip vào thư mục Update, chờ task gọi đến
 
 ![](Attachments/Pasted%20image%2020260423161139.png)
