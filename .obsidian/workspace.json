@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Logging.md",
+                "file": "logging.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Logging"
+              "title": "logging"
             }
           }
         ]
@@ -196,6 +196,9 @@
   },
   "active": "29d9c40df10d7af1",
   "lastOpenFiles": [
+    "Untitled.md",
+    "logging.md",
+    "principal.md",
     "Attachments/Pasted image 20260429000906.png",
     "Attachments/Pasted image 20260429000818.png",
     "Attachments/Pasted image 20260429000605.png",
@@ -204,12 +207,9 @@
     "Attachments/Pasted image 20260428192539.png",
     "Attachments/Pasted image 20260428182310.png",
     "Attachments/Pasted image 20260428155731.png",
-    "Logging.md",
     "Attachments/Pasted image 20260423161227.png",
     "Attachments/Pasted image 20260423161208.png",
-    "Attachments/Pasted image 20260423161207.png",
     "README.md",
-    "principal.md",
     "Attachments"
   ]
 }

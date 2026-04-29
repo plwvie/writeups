@@ -1,11 +1,20 @@
+### Enumarate
+
 ![](Attachments/Pasted%20image%2020260423060335.png)
 
+Quét nâng cao:
+`nmap -Pn -p- --min-rate 2000 -T 4 <\IP>`
+-> quét nâng cao phát hiện cổng 8530 và 8531, là cổng để update windows nội bộ (?)
+
+Truy cập share SMB, nhận được nhiều file log, trong đó:
 ![](Attachments/Pasted%20image%2020260423064329.png)
 
 "LOGGING\svc_recovery", BindPass: "Em3rg3ncyPa\$\$2025"
+Thay 2025 bằng 2026 thì được mật khẩu đúng của SVC_RECOVERY
 
 ![](Attachments/Pasted%20image%2020260423065742.png)
 
+SVC_RECOVERY nằm trong nhóm Protected Users -> không đăng nhập được bằng tk/mk thông thường hoặc hash, mọi thao tác đều phải thông qua Kerberos ->
 
 ![](Attachments/Pasted%20image%2020260423065733.png)
 ![](Attachments/Pasted%20image%2020260423065733.png)
