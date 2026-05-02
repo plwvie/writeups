@@ -26,3 +26,7 @@ admin:CS)!518bRX$ce
 
 ![](Attachments/Pasted%20image%2020260502194251.png)
 
+hmm, thử đăng nhập ssh, wtf:
+
+![](Attachments/Pasted%20image%2020260502194616.png)
+
