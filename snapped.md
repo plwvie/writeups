@@ -30,3 +30,5 @@ hmm, thử đăng nhập ssh, wtf:
 
 ![](Attachments/Pasted%20image%2020260502194616.png)
 
+![](Attachments/Pasted%20image%2020260503173913.png)
+
