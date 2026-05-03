@@ -32,3 +32,5 @@ hmm, thử đăng nhập ssh, wtf:
 
 ![](Attachments/Pasted%20image%2020260503173913.png)
 
+to set up a snap's sandbox, snap-confine creates a directory named /tmp/snap-private-tmp/$SNAP/tmp (as user root, mode 01777) that is later bind-mounted onto the /tmp directory inside the snap's sandbox.
+
