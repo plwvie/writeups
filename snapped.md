@@ -33,4 +33,4 @@ hmm, thử đăng nhập ssh, wtf:
 ![](Attachments/Pasted%20image%2020260503173913.png)
 
 to set up a snap's sandbox, snap-confine creates a directory named /tmp/snap-private-tmp/$SNAP/tmp (as user root, mode 01777) that is later bind-mounted onto the /tmp directory inside the snap's sandbox.
-
+And inside this /tmp directory (inside the snap's sandbox), snap-confine creates a directory named /tmp/.snap (as user root, mode 0755) to create "mimics"; for example, inside the sandbox of each and every snap that is installed by default on Ubuntu Desktop, snap-confine bind-mounts the /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 directory:
