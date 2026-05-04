@@ -35,4 +35,11 @@ hmm, thử đăng nhập ssh, wtf:
 https://cdn2.qualys.com/advisory/2026/03/17/snap-confine-systemd-tmpfiles.txt
 
 to set up a snap's sandbox, snap-confine creates a directory named /tmp/snap-private-tmp/$SNAP/tmp (as user root, mode 01777) that is later bind-mounted onto the /tmp directory inside the snap's sandbox.
-And inside this /tmp directory (inside the snap's sandbox), snap-confine creates a directory named /tmp/.snap (as user root, mode 0755) to create "mimics"; for example, inside the sandbox of each and every snap that is installed by default on Ubuntu Desktop, snap-confine bind-mounts the /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 directory:
+And inside this /tmp directory (inside the snap's sandbox), snap-confine creates a directory named **/tmp/.snap (as user root, mode 0755) to create "mimics"**; for example, inside the sandbox of each and every snap that is installed by default on Ubuntu Desktop, snap-confine bind-mounts the /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 directory:
+but inside the snap's sandbox, /usr/lib/x86_64-linux-gnu is in a read-only filesystem (the "core22" base's squashfs);
+snap-confine must first create a "mimic" of /usr/lib/x86_64-linux-gnu (a writable copy of /usr/lib/x86_64-linux-gnu), by:
+1 bind-mounting the original, read-only /usr/lib/x86_64-linux-gnu onto **/tmp/.snap/usr/lib/x86_64-linux-gnu** (inside the snap's sandbox);
+2 mounting a new, writable tmpfs onto /usr/lib/x86_64-linux-gnu;
+3 bind-mounting every file and directory from /tmp/.snap/usr/lib/x86_64-linux-gnu back into /usr/lib/x86_64-linux-gnu;
+4 creating the /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 mountpoint (which is in a writable tmpfs now);
+5/ finally bind-mounting /snap/firefox/6565/gnome-platform/usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 (for example) onto /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0.
