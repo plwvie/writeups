@@ -72,3 +72,11 @@ Step 4: umount /tmp/.snap/usr/lib/x86_64-linux-gnu
 Step 5: mount--bind /snap/firefox/.../webkit2gtk-4.0
                   -> /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0
         (now the mountpoint exists and can be used)
+
+
+
+
+
+
+![](Attachments/Pasted%20image%2020260504221650.png)
+
