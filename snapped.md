@@ -54,29 +54,9 @@ snap-confine must first create a "mimic" of /usr/lib/x86_64-linux-gnu (a writabl
 
 https://github.com/nomaisthere/CVE-2026-3888
 
-Step 1: mount --bind /usr/lib/x86_64-linux-gnu
-                  → /tmp/.snap/usr/lib/x86_64-linux-gnu
+![](Attachments/Pasted%20image%2020260504221745.png)
 
-Step 2: mount -t tmpfs tmpfs
-                  → /usr/lib/x86_64-linux-gnu
-        (now /usr/lib/x86_64-linux-gnu is a fresh, empty, writable tmpfs)
-
-Step 3: for each entry in /tmp/.snap/usr/lib/x86_64-linux-gnu:
-            mount --bind /tmp/.snap/usr/lib/x86_64-linux-gnu/<entry>
-                      → /usr/lib/x86_64-linux-gnu/<entry>
-        (repopulate the tmpfs with bind-mounts of everything from the original)
-
-Step 4: umount /tmp/.snap/usr/lib/x86_64-linux-gnu
-        (clean up the staging area)
-
-Step 5: mount--bind /snap/firefox/.../webkit2gtk-4.0
-                  -> /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0
-        (now the mountpoint exists and can be used)
+![](Attachments/Pasted%20image%2020260504221716.png)
 
 
-
-
-
-
-![](Attachments/Pasted%20image%2020260504221650.png)
 
