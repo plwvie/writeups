@@ -45,3 +45,9 @@ snap-confine must first create a "mimic" of /usr/lib/x86_64-linux-gnu (a writabl
 5/ finally bind-mounting /snap/firefox/6565/gnome-platform/usr/lib/x86_64-linux-gnu/webkit2gtk-4.0 (for example) onto /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0.
 
 ![](Attachments/Pasted%20image%2020260504140029.png)
+
+![](Attachments/Pasted%20image%2020260504141606.png)
+
+![](Attachments/Pasted%20image%2020260504141621.png)
+
+![](Attachments/Pasted%20image%2020260504141640.png)
