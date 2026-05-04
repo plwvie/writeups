@@ -51,3 +51,6 @@ snap-confine must first create a "mimic" of /usr/lib/x86_64-linux-gnu (a writabl
 ![](Attachments/Pasted%20image%2020260504141621.png)
 
 ![](Attachments/Pasted%20image%2020260504141640.png)
+
+https://github.com/nomaisthere/CVE-2026-3888
+
