@@ -58,5 +58,20 @@ https://github.com/nomaisthere/CVE-2026-3888
 
 ![](Attachments/Pasted%20image%2020260504221716.png)
 
+Phase 1:
+
+![](Attachments/Pasted%20image%2020260504223412.png)
+
+Phase 2:
+
+![](Attachments/Pasted%20image%2020260504223440.png)
+
+Phase 3:
+
+![](Attachments/Pasted%20image%2020260504223606.png)
+
+![](Attachments/Pasted%20image%2020260504223632.png)
+
+Phase 4:
 
 
