@@ -8,11 +8,11 @@
       </a>
     </td>
     <td width="60%">
-      <h3>👋 Xin chào, mình là Vũ!</h3>
+      <h3>A few things</h3>
       <ul>
-        <li>Sinh viên Học viện Kỹ thuật Mật mã, định hướng theo đuổi mảng SOC / Blue Team.</li>
-        <li>Có sở thích nghiên cứu về Dịch ngược (Reverse Engineering), khai thác lỗ hổng (Binary Exploitation) và phân tích mã độc.</li>
-        <li>Ngoài giờ gõ code và làm lab, mình có hứng thú đặc biệt với nhạc Indie, phim Coming of Age và đồ vintage denim.</li>
+        <li>Liverpool</li>
+        <li>The Strokes</li>
+        <li>Reebok</li>
       </ul>
     </td>
   </tr>
