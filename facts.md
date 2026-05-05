@@ -15,3 +15,4 @@ them truong password[role] = 'admin' trong request -> thanh admin
 https://medium.com/@iamkumarraj/mass-assignment-vulnerability-in-camaleon-cms-2-9-0-ajax-privilege-escalation-9a09c8253b52
 
 ![](Attachments/Pasted%20image%2020260505170126.png)
+
