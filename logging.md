@@ -1,49 +1,44 @@
-### Enumarate
+# logging
 
-![](Attachments/Pasted%20image%2020260423060335.png)
+#### Enumarate
 
-Quét nâng cao:
-`nmap -Pn -p- --min-rate 2000 -T 4 <\IP>`
--> quét nâng cao phát hiện cổng 8530 và 8531, là cổng để update windows nội bộ (?)
+![](<.gitbook/assets/Pasted image 20260423060335.png>)
 
-### Lateral Movement
+Quét nâng cao: `nmap -Pn -p- --min-rate 2000 -T 4 <\IP>` -> quét nâng cao phát hiện cổng 8530 và 8531, là cổng để update windows nội bộ (?)
+
+#### Lateral Movement
+
 Truy cập share SMB, nhận được nhiều file log, trong đó:
 
-![](Attachments/Pasted%20image%2020260423064329.png)
+![](<.gitbook/assets/Pasted image 20260423064329.png>)
 
-"LOGGING\svc_recovery", BindPass: "Em3rg3ncyPa\$\$2025"
-Thay 2025 bằng 2026 thì được mật khẩu đúng của SVC_RECOVERY
-SVC_RECOVERY nằm trong nhóm Protected Users -> không đăng nhập được bằng tk/mk thông thường hoặc hash, mọi thao tác đều phải thông qua Kerberos -> xin vé TGT. Ngoài ra còn phải đồng bộ về thời gian thông qua ntpupdate và faketime.
+"LOGGING\svc\_recovery", BindPass: "Em3rg3ncyPa\$$2025" Thay 2025 bằng 2026 thì được mật khẩu đúng của SVC\_RECOVERY SVC\_RECOVERY nằm trong nhóm Protected Users -> không đăng nhập được bằng tk/mk thông thường hoặc hash, mọi thao tác đều phải thông qua Kerberos -> xin vé TGT. Ngoài ra còn phải đồng bộ về thời gian thông qua ntpupdate và faketime.
 
-![](Attachments/Pasted%20image%2020260429141035.png)
+![](<.gitbook/assets/Pasted image 20260429141035.png>)
 
-![](Attachments/Pasted%20image%2020260429141049.png)
+![](<.gitbook/assets/Pasted image 20260429141049.png>)
 
-![](Attachments/Pasted%20image%2020260429141101.png)
+![](<.gitbook/assets/Pasted image 20260429141101.png>)
 
-SVC_RECOVERY có quyền GenericWrite tới MSA_HEALTH$ (là 1 thành viên của nhóm Remote). Ta có thể tấn công Shadow Credentials. 
-https://infosecwriteups.com/how-hackers-achieve-invisible-persistence-in-active-directory-shadow-credentials-6b53a6c85e74
+SVC\_RECOVERY có quyền GenericWrite tới MSA\_HEALTH$ (là 1 thành viên của nhóm Remote). Ta có thể tấn công Shadow Credentials. https://infosecwriteups.com/how-hackers-achieve-invisible-persistence-in-active-directory-shadow-credentials-6b53a6c85e74
 
+![](<.gitbook/assets/Pasted image 20260423065742.png>)
 
-![](Attachments/Pasted%20image%2020260423065742.png)
+Nạp vé Kerberos của SVC\_RECOVERY:
 
-
-Nạp vé Kerberos của SVC_RECOVERY:
-
-![](Attachments/Pasted%20image%2020260423080830.png)
+![](<.gitbook/assets/Pasted image 20260423080830.png>)
 
 Tấn công shadow credentials bằng công cụ certipy (linux), Certify.exe (windows):
 
-![](Attachments/Pasted%20image%2020260423094710.png)
+![](<.gitbook/assets/Pasted image 20260423094710.png>)
 
-Thu được NTLM hash của MSA_HEALTH$ ($ chỉ tài khoản máy, khó có thể crack dượdc)
-603fc24ee01a9409f83c9d1d701485c5
+Thu được NTLM hash của MSA\_HEALTH$ ($ chỉ tài khoản máy, khó có thể crack dượdc) 603fc24ee01a9409f83c9d1d701485c5
 
-![](Attachments/Pasted%20image%2020260423105106.png)
+![](<.gitbook/assets/Pasted image 20260423105106.png>)
 
-![](Attachments/Pasted%20image%2020260423105125.png)
+![](<.gitbook/assets/Pasted image 20260423105125.png>)
 
-### User Flag
+#### User Flag
 
 Trong thư mục ngay khi đăng nhập, ta có một file lấy thông tin của task, sửa lại một chút để có thông tin đầy đủ của task:
 
@@ -55,15 +50,12 @@ $TaskName = "UpdateChecker Agent"
     Write-Host $task.Xml
 ```
 
+![](<.gitbook/assets/Pasted image 20260423132234.png>)
 
-![](Attachments/Pasted%20image%2020260423132234.png)
-
-PT3M: cứ 3 phút task lại chạy
-Đường dẫn: "C:\Program Files\UpdateMonitor\UpdateMonitor.exe"
+PT3M: cứ 3 phút task lại chạy Đường dẫn: "C:\Program Files\UpdateMonitor\UpdateMonitor.exe"
 
 Dịch ngược thu được mã nguồn C#:
 
- 
 ```
 // UpdateMonitor.Program
 using System;
@@ -138,33 +130,30 @@ private static void Main(string[] args)
 	Log(path, "Update check completed.");
 }
 ```
+
 -> Ta cần tạo một dll độc hại, nén nó vào 1 file zip, sau đó cop file zip vào thư mục Update, chờ task gọi đến
 
-![](Attachments/Pasted%20image%2020260423161139.png)
+![](<.gitbook/assets/Pasted image 20260423161139.png>)
 
-![](Attachments/Pasted%20image%2020260423161207.png)
+![](<.gitbook/assets/Pasted image 20260423161207.png>)
 
-![](Attachments/Pasted%20image%2020260423161227.png)
+![](<.gitbook/assets/Pasted image 20260423161227.png>)
 
 Lấy được shell của jaylee.clifton:
 
-![](Attachments/Pasted%20image%2020260428155731.png)
+![](<.gitbook/assets/Pasted image 20260428155731.png>)
 
-### Root flag
+#### Root flag
 
-Dùng Certify.exe, ta thấy có 1 cert template mà nhóm IT có quyền xin, có flag ENROLLEE_SUPPLIES_SUBJECT, nhưng Extended Key Usage lại là Server Authen -> không phải ESC1
-Vấn đề là máy DC01 này được cấu hình để tự động cập nhật thông qua https://wsus.logging.htb:8051. Ta có thể dựng 1 server wsus giả mạo, và hướng DNS của domain đến server này.
-Có thể tham khảo ESC17 (?): https://mustafanafizdurukan.github.io/posts/esc17-wsus-dns-abuse/
+Dùng Certify.exe, ta thấy có 1 cert template mà nhóm IT có quyền xin, có flag ENROLLEE\_SUPPLIES\_SUBJECT, nhưng Extended Key Usage lại là Server Authen -> không phải ESC1 Vấn đề là máy DC01 này được cấu hình để tự động cập nhật thông qua https://wsus.logging.htb:8051. Ta có thể dựng 1 server wsus giả mạo, và hướng DNS của domain đến server này. Có thể tham khảo ESC17 (?): https://mustafanafizdurukan.github.io/posts/esc17-wsus-dns-abuse/
 
-
-![](Attachments/Pasted%20image%2020260429142943.png)
+![](<.gitbook/assets/Pasted image 20260429142943.png>)
 
 Dùng dnstool để tiêm bản ghi dns đến địa chỉ máy tấn công (kali):
 
-![](Attachments/Pasted%20image%2020260428192539.png)
+![](<.gitbook/assets/Pasted image 20260428192539.png>)
 
-Kiểm tra bản ghi DNS: dùng adidns
-![](Attachments/Pasted%20image%2020260429000818.png)
+Kiểm tra bản ghi DNS: dùng adidns ![](<.gitbook/assets/Pasted image 20260429000818.png>)
 
 Cả 2 công cụ trên đều trong gói krbxrelay.
 
@@ -172,14 +161,10 @@ Xin cert cho server giả mạo:
 
 `Certify.exe request /ca:"DC01.logging.htb\logging-DC01-CA" /template:"UpdateSrv" /subject:"CN=wsus.logging.htb" /dns:"wsus.logging.htb"`
 
-![](Attachments/Pasted%20image%2020260429000605.png)
+![](<.gitbook/assets/Pasted image 20260429000605.png>)
 
 Dựng wsus server giả mạo với wsuks tool:
 
-![](Attachments/Pasted%20image%2020260429000445.png)
+![](<.gitbook/assets/Pasted image 20260429000445.png>)
 
-![](Attachments/Pasted%20image%2020260429143816.png)
-
-
-
-
+![](<.gitbook/assets/Pasted image 20260429143816.png>)
