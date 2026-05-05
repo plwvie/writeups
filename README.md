@@ -8,17 +8,16 @@
       </a>
     </td>
     <td width="55%" valign="middle">
-      <blockquote>
-        <h2>A few things</h2>
-        <ul>
-          <li><b>Liverpool</b></li>
-          <li><b>The Strokes</b></li>
-          <li><b>Reebok</b></li>
-        </ul>
-      </blockquote>
+      <h3>> A_few_things.txt</h3>
+      <ul>
+        <li><code>Liverpool</code></li>
+        <li><code>The Strokes</code></li>
+        <li><code>Reebok</code></li>
+      </ul>
     </td>
   </tr>
 </table>
+
 
 
 
