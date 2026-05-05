@@ -1,3 +1,6 @@
+### Enumerate
+
+2 cổng mở: Web (80) và SSH (22).
 ![](Attachments/Pasted%20image%2020260502180555.png)
 
 ![](Attachments/Pasted%20image%2020260502181031.png)
