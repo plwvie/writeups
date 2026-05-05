@@ -20,3 +20,7 @@ https://medium.com/@iamkumarraj/mass-assignment-vulnerability-in-camaleon-cms-2-
 
 ![](Attachments/Pasted%20image%2020260505181435.png)
 
+![](Attachments/Pasted%20image%2020260505183342.png)
+
+![](Attachments/Pasted%20image%2020260505184020.png)
+
