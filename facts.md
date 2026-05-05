@@ -57,13 +57,31 @@ Tạo một thư mục để lưu trữ:
 Kéo dữ liệu về
 `aws s3 sync s3://internal/.ssh/ ./ssh_keys/ --endpoint-url http://facts.htb:54321`
 
-Vấn đề với ssh: 
+Vấn đề với ssh: (1) Khoá bí mật bị mã hoá bằng 1 passphrase, (2) chưa biết tên tài khoản ssh.
+
+Với (1), ta có thể dùng john để bẻ:
+
+Bạn không thể ném trực tiếp file SSH vào `john`. Bạn cần dùng công cụ `ssh2john` để dịch file này sang định dạng hash mà `john` có thể hiểu được.
+
+`ssh2john id_ed25519 > id_ed25519.hash`
+
+![](Attachments/Pasted%20image%2020260505193530.png)
+
+Bẻ khoá bằng john:
 
 ![](Attachments/Pasted%20image%2020260505170126.png)
 
+Phát hiện được passphrase: `dragonballz`
+
+Với (2), bởi vì file `id_ed25519` định dạng mới của OpenSSH lưu trữ cả thông tin của Public Key bên trong, bạn có thể dùng lệnh `ssh-keygen` để ép nó "nhả" ra Public Key.
+
 ![](Attachments/Pasted%20image%2020260505181410.png)
 
+`trivia`
+
 ![](Attachments/Pasted%20image%2020260505181435.png)
+
+### Privilege Escalation
 
 ![](Attachments/Pasted%20image%2020260505183342.png)
 
