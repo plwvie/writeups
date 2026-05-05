@@ -2,7 +2,7 @@
 
 ![](Attachments/Pasted%20image%2020260505185457.png)
 
-### Exploit Web Service
+### Exploit Web Service - Initial Access
 
 Dùng ffuf, phát hiện web có chứa đường dẫn đến trang đăng nhập admin:
 
