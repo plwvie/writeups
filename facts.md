@@ -1,6 +1,9 @@
-user[role] = client
-user[username] = plvugr
-user[id] = 5
+### Enumerate
+
+![](Attachments/Pasted%20image%2020260505185457.png)
+
+### Exploit Web Service
+
 
 ![](Attachments/Pasted%20image%2020260505135927.png)
 
@@ -23,4 +26,5 @@ https://medium.com/@iamkumarraj/mass-assignment-vulnerability-in-camaleon-cms-2-
 ![](Attachments/Pasted%20image%2020260505183342.png)
 
 ![](Attachments/Pasted%20image%2020260505184020.png)
+
 
